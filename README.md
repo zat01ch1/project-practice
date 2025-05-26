@@ -1,4 +1,4 @@
-# Simple-shell-on-Go
+# Text Editor on Python
 
 ## Проектная практика: Создание текствого редактора на Python
 
