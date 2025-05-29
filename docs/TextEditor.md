@@ -8,28 +8,28 @@ from tkinter.messagebox import showerror
 ```
 ## Шаг 1: Инициализация переменных
 ```python
-filename = None  # Для хранения пути к текущему файлу
+filename = None  
 ```
 ## Шаг 3: Функция создания нового файла
 ```python
 def newFile():
     global filename
     filename = "Untitled"
-    text.delete(0.0, END)  # Очистка текстового поля
+    text.delete(0.0, END)  
 ```
 ## Шаг 4: Функция сохранения файла
 ```python
 def saveFile():
     global filename
     if filename:
-        t = text.get(0.0, END)  # Получение всего текста
+        t = text.get(0.0, END)  
         try:
             with open(filename, 'w') as f:
-                f.write(t)  # Запись в файл
+                f.write(t)  
         except:
             showerror(title='Ой!', message="Не удается сохранить файл")
     else:
-        saveAs()  # Если файл новый - вызываем "Сохранить как"
+        saveAs()  
 ```
 ## Шаг 5: Функция "Сохранить как"
 ```python
@@ -38,10 +38,10 @@ def saveAs():
     if f:
         t = text.get(0.0, END)
         try:
-            f.write(t.rstrip())  # Запись без лишних пробелов
+            f.write(t.rstrip())  
             f.close()
             global filename
-            filename = f.name  # Сохраняем путь к файлу
+            filename = f.name  
         except:
             showerror(title='Ой!', message="Не удается сохранить файл")
 ```
@@ -53,8 +53,8 @@ def openFile():
     if f:
         t = f.read()
         text.delete(0.0, END)
-        text.insert(0.0, t)  # Вставка содержимого файла
-        filename = f.name    # Сохранение пути
+        text.insert(0.0, t)  
+        filename = f.name   
         f.close()
 ```
 ## Шаг 7: Создание графического интерфейса
